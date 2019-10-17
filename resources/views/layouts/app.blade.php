@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -26,10 +27,10 @@
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -71,7 +72,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('util.time')
         <main class="py-4">
             @yield('content')
         </main>
@@ -80,6 +81,8 @@
     </div>
 </body>
 <footer class="bg-primary shadow-sm text-white footer">
-        &copy; Copyright Bjora.com
+        &copy; 2019 Copyright Bjora.com
 </footer>
+
+
 </html>

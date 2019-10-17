@@ -1,11 +1,22 @@
-.footer{
-    flex-shrink: 0; position: fixed; bottom: 0; width: 100%;
+.footer {
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     padding: 10px;
     text-align: center;
 }
 
-@media (max-height:700px){
+@media (max-height: 700px) {
     footer {
         display: flex !important;
     }
+}
+
+#search {
+    margin: 10px 0px;
+    width: 250px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
