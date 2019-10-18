@@ -8,9 +8,9 @@
 }
 
 @media (max-height: 700px) {
-    footer {
-        display: flex !important;
-    }
+    /*footer {*/
+    /*    display: flex !important;*/
+    /*}*/
 }
 
 #search {

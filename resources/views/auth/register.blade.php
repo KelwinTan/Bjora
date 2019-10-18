@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="padding-bottom: 40px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -79,11 +79,11 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
                                     <input id="gender-female" type="radio"
-                                           class="@error('password') is-invalid @enderror"
+                                           class="@error('gender') is-invalid @enderror"
                                            name="gender" value="female" required style="border-radius: 50%;"> Female
-                                    <input id="gender-male" type="radio" class="@error('password') is-invalid @enderror"
+                                    <input id="gender-male" type="radio" class="@error('gender') is-invalid @enderror"
                                            name="gender" value="male" required> Male
-                                    @error('password')
+                                    @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -96,7 +96,7 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea style="width: 100%; height: 200px;"></textarea>
+                                    <textarea style="width: 100%; height: 200px;" name="address"></textarea>
                                 </div>
                             </div>
 
@@ -115,7 +115,7 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Profile Picture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="file" type="file" name="file" required accept=".jpeg, .png, .jpg">
+                                    <input id="profile_picture" type="file" name="profile_picture" required accept=".jpeg, .png, .jpg">
                                 </div>
                             </div>
 

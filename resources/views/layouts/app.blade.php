@@ -80,7 +80,7 @@
 
     </div>
 </body>
-<footer class="bg-primary shadow-sm text-white footer">
+<footer class="bg-primary shadow-sm text-white footer" style="text-align: center;">
         &copy; 2019 Copyright Bjora.com
 </footer>
 

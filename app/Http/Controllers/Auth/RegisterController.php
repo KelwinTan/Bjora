@@ -7,6 +7,7 @@ use Bjora\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use mysql_xdevapi\Schema;
 
 class RegisterController extends Controller
 {
@@ -49,9 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'alpha_num', 'min:6', 'confirmed'],
+            'profile_picture' => ['required','file', 'image', 'mimes:jpeg,png,jpg'],
+            'gender' => ['required', 'in:male,female'],
+            'address' => ['required'],
+            'birthday' => ['required', 'date']
         ]);
     }
 
@@ -64,9 +69,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'profile_picture' => $data['profile_picture'],
+            'birthday' => $data['birthday'],
         ]);
     }
 }
