@@ -8,19 +8,19 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Full Name') }}</label>
+                                <label for="username"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                           class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="username" type="text"
+                                           class="form-control @error('username') is-invalid @enderror" name="username"
+                                           value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                    @error('name')
+                                    @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -75,15 +75,28 @@
 
 
                             <div class="form-group row" style="align-items: center;">
-                                <label for="Gender"
+                                <label for="gender"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
-                                    <input id="gender-female" type="radio"
-                                           class="@error('gender') is-invalid @enderror"
-                                           name="gender" value="female" required style="border-radius: 50%;"> Female
-                                    <input id="gender-male" type="radio" class="@error('gender') is-invalid @enderror"
-                                           name="gender" value="male" required> Male
-                                    @error('gender')
+                                    <input id="" type="radio" name="gender" value="Female" required
+                                           style="border-radius: 50%;"> Female
+                                    <input id="" type="radio" name="gender" value="Male" required> Male
+                                </div>
+                                @error('gender')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="address"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <textarea style="width: 100%; height: 200px;" name="address"
+                                              placeholder="Insert Your Address..."></textarea>
+                                    @error('address')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -92,30 +105,31 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="address"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea style="width: 100%; height: 200px;" name="address"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="birth-date"
+                                <label for="birthday"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="date" type="date" class="form-control"
-                                           name="date" required>
+                                    <input id="birthday" type="date" class="form-control" name="birthday" required>
+                                    @error('birthday')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form-group row" style="align-items: center;">
-                                <label for="profile-picture"
+                                <label for="profile_picture"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Profile Picture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="profile_picture" type="file" name="profile_picture" required accept=".jpeg, .png, .jpg">
+                                    <input type="file" name="profile_picture" required
+                                           accept=".jpeg, .png, .jpg">
+                                    @error('profile_picture')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 

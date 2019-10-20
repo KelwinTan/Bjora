@@ -5,6 +5,8 @@ namespace Bjora\Http\Controllers\Auth;
 use Bjora\User;
 use Bjora\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use mysql_xdevapi\Schema;
@@ -53,10 +55,10 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'alpha_num', 'min:6', 'confirmed'],
-            'profile_picture' => ['required','file', 'image', 'mimes:jpeg,png,jpg'],
-            'gender' => ['required', 'in:male,female'],
+            'gender' => ['required', 'in:Male,Female'],
             'address' => ['required'],
-            'birthday' => ['required', 'date']
+            'birthday' => ['required', 'date'],
+            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg'],
         ]);
     }
 
@@ -68,14 +70,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Store image to public profile directory, then store the path to profile_picture column in the users table
+        $profile_picture = "";
+        if(isset($data['profile_picture'])){
+            $img = $data['profile_picture'];
+            $filename = $img->getClientOriginalName();
+            $profile_picture = $img->storeAs('public/profile', $filename);
+        }
+        $newUser = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'gender' => $data['gender'],
             'address' => $data['address'],
-            'profile_picture' => $data['profile_picture'],
-            'birthday' => $data['birthday'],
+            'profile_picture' => $profile_picture,
+            'birthday' => $data['birthday']
         ]);
+
+        return $newUser;
     }
 }
