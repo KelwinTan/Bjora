@@ -12,6 +12,8 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+    const ADMIN_TYPE = 'Admin';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,6 +31,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'password_confirmation', 'remember_token',
     ];
+
+    public function isAdmin(){
+        return $this->role === self::ADMIN_TYPE;
+    }
 
     /**
      * The attributes that should be cast to native types.
