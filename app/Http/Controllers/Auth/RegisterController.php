@@ -74,8 +74,7 @@ class RegisterController extends Controller
         $profile_picture = "";
         if(isset($data['profile_picture'])){
             $img = $data['profile_picture'];
-            $filename = $img->getClientOriginalName();
-            $profile_picture = $img->storeAs('public/profile', $filename);
+            $profile_picture = Storage::disk('public')->put('profile_picture', $img);
         }
         $newUser = User::create([
             'username' => $data['username'],

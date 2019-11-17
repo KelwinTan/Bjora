@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (){
+   return view('');
+});
+
+Route::get('/credits', function () {
     return view('welcome');
 });
 
