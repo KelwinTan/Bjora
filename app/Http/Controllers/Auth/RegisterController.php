@@ -51,8 +51,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+//        Username and Name and Full Name are the same
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'alpha_num', 'min:6', 'confirmed'],
             'gender' => ['required', 'in:Male,Female'],
@@ -83,7 +84,8 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'address' => $data['address'],
             'profile_picture' => $profile_picture,
-            'birthday' => $data['birthday']
+            'birthday' => $data['birthday'],
+            'role' => User::MEMBER_TYPE,
         ]);
 
         return $newUser;

@@ -2,6 +2,7 @@
 
 namespace Bjora\Http;
 
+use Bjora\Http\Middleware\CheckAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -60,7 +61,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'admin' => \App\Http\Middleware\Admin::class,
+        'CheckAdmin' => \Bjora\Http\Middleware\CheckAdmin::class,
     ];
 
     /**

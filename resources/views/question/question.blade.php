@@ -15,9 +15,6 @@
                         {{--                            {{ session('status') }}--}}
                         {{--                        </div>--}}
                         {{--                    @endif--}}
-                        @foreach($questions as $question)
-                            {{$question->question}}
-                        @endforeach
 
                     </div>
                 </div>

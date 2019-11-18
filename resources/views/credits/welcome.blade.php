@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Bjora Creators</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href="https://www.linkedin.com/in/willson-haryanto-813358121/">Willson Haryanto</a>
                     <a href="https://www.linkedin.com/in/kelwintantono/">Kelwin Tantono</a>
-                    <a href="https://www.linkedin.com/in/alberts-p-774626b8/">Alberts Febrian</a>
+                    <a href="https://www.linkedin.com/in/alberts-febrian-p-774626b8/">Alberts Febrian</a>
                 </div>
             </div>
         </div>

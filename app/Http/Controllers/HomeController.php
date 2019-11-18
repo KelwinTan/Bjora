@@ -2,6 +2,7 @@
 
 namespace Bjora\Http\Controllers;
 
+use Bjora\Question;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $questions = Question::with(['user', 'topic'])->paginate(10);
+        return view('home', ['questions' => $questions]);
     }
 }

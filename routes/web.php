@@ -11,30 +11,47 @@
 |
 */
 
-Route::get('/', function (){
-   return view('');
+Route::get('/', function () {
+    return view('credits.instructions');
 });
 
 Route::get('/credits', function () {
-    return view('welcome');
+    return view('credits.welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'question'], function () {
+    Route::get('/add', 'QuestionController@create');
 
-Route::group(['middleware' => 'admin', 'prefix' => 'user'], function (){
+});
 
-    Route::get('/adminhome', function (){
+//Routing for User Profile
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('/user', 'UserController@showProfile')->name('show-profile');
+    Route::get('/update', 'UserController@showUpdateProfile')->name('show-update-profile');
+    Route::post('/update', 'UserController@updateProfile')->name('Update Profile');
+});
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function () {
+
+    Route::get('/home', function () {
         return view('admin');
     });
 
-    Route::group(['prefix' => 'topic'], function (){
+    Route::get('/manage-user', 'AdminController@manageUser');
+    Route::get('/add-user', 'AdminController@addUserForm')->name('admin-add-user');
+    Route::post('/add-user', 'AdminController@createUser');
+
+
+    Route::group(['prefix' => 'topic'], function () {
         Route::get('/', 'TopicController@index');
-
-
     });
 
 
 });
+
+
