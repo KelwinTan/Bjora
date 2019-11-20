@@ -12,7 +12,7 @@
     <style>
         /* css variables*/
         :root {
-            --primary-color: #432E30;
+            --primary-color: rgba(52, 144, 220, 0.9);
             --primary-color-light: #8E7474;
             --accent-color: #FE6A6B;
             --accent-color-light: #FFE4E4;
@@ -470,6 +470,14 @@
     {{--    </aside>--}}
     <article class="doc__content">
         <section class="js-section">
+            <h3 class="section__title">Getting Started</h3>
+            <p>Migrate using the following command:</p>
+            <pre class="code--block">
+                php artisan migrate --seed
+            </pre>
+            <hr/>
+        </section>
+        <section class="js-section">
             <h3 class="section__title">Global</h3>
             <table id="customers">
                 <tr>
@@ -523,22 +531,7 @@
                 ne per tacimates suavitate vituperatoribus.</p>
             <hr/>
         </section>
-        <section class="js-section">
-            <h3 class="section__title">Keybindings</h3>
-            <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per.
-                At eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum
-                intellegebat, ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro
-                verear eu vix, ne usu tation vituperata.</p>
-            <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-                concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant
-                lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te,
-                ne per tacimates suavitate vituperatoribus.</p>
-            <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-                concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant
-                lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te,
-                ne per tacimates suavitate vituperatoribus.</p>
-            <hr/>
-        </section>
+
         <section class="js-section">
             <h3 class="section__title">Issues</h3>
             <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per.

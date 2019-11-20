@@ -2,8 +2,12 @@
 
 namespace Bjora\Http\Controllers;
 
+use Bjora\Http\Requests\QuestionRequest;
 use Bjora\Question;
+use Bjora\Topic;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -14,17 +18,33 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::with(['user', 'topic'])->paginate(10);
+        return view('home', ['questions' => $questions]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param QuestionRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(QuestionRequest $request)
     {
+        $user = Auth::user();
 
+        $newQuestion = Question::create([
+            'user_id' => $user->id,
+            'topic_id' => $request->topic,
+            'status' => 'open',
+            'question' => $request->question,
+        ]);
+        $topics = Topic::all();
+        return view('question.user-add', ['topics' => $topics]);
+    }
+
+    public function createForm(){
+        $topics = Topic::all();
+        return view('question.user-add', ['topics' => $topics]);
     }
 
     /**

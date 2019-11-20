@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('topic_id');
             $table->enum('status', ['open', 'closed']);
-            $table->string('question');
+            $table->longText('question');
             $table->softDeletes();
             $table->timestamps();
         });

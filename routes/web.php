@@ -21,11 +21,11 @@ Route::get('/credits', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'QuestionController@index')->name('home');
 
 Route::group(['prefix' => 'question'], function () {
-    Route::get('/add', 'QuestionController@create');
-
+    Route::get('/add', 'QuestionController@createForm')->name('member-add-question-form');
+    Route::post('/add', 'QuestionController@create')->name('member-add-question');
 });
 
 //Routing for User Profile

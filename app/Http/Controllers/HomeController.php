@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $questions = Question::with(['user', 'topic'])->paginate(10);
-        return view('home', ['questions' => $questions]);
+
     }
 }
