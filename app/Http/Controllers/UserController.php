@@ -5,6 +5,7 @@ namespace Bjora\Http\Controllers;
 use Bjora\Http\Requests\UserRequest;
 use Bjora\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +13,8 @@ class UserController extends Controller
 {
     public function showProfile()
     {
-        return view('profile.profile');
+        $others = User::where('id', '!=', \auth()->id())->get();
+        return view('profile.profile', ['users' => $others]);
     }
 
     public function showUpdateProfile()
@@ -21,7 +23,7 @@ class UserController extends Controller
     }
 
     public function updateProfile(UserRequest $userRequest){
-        
+
 
         $profile_picture = "";
         if(isset($userRequest['profile_picture'])){
@@ -47,11 +49,11 @@ class UserController extends Controller
         $currUser->password = Hash::make($userRequest->password);
         $currUser->gender = $userRequest->gender;
         $currUser->address = $userRequest->address;
-        $currUser->profile_picture = $userRequest->profile_picture;
+        $currUser->profile_picture = $profile_picture;
         $currUser->birthday = $userRequest->birthday;
         $currUser->save();
 
-        return $currUser;
+        return redirect()->route('show-profile');
     }
 
 

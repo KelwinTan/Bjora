@@ -24,8 +24,13 @@ Auth::routes();
 Route::get('/home', 'QuestionController@index')->name('home');
 
 Route::group(['prefix' => 'question'], function () {
+
     Route::get('/add', 'QuestionController@createForm')->name('member-add-question-form');
     Route::post('/add', 'QuestionController@create')->name('member-add-question');
+    Route::get('/update/{id}', 'QuestionController@updateForm')->name('update-question-form');
+    Route::post('/update/{question}', 'QuestionController@update')->name('update-question');
+    Route::get('/my', 'QuestionController@show')->name('user-question');
+
 });
 
 //Routing for User Profile

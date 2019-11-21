@@ -66,7 +66,9 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $user = Auth::user();
+        $questions = Question::with(['user', 'topic'])->where('user_id', '=', $user->id)->paginate(10);
+        return view('question.myquestion', ['questions' => $questions]);
     }
 
     /**
@@ -87,9 +89,25 @@ class QuestionController extends Controller
      * @param  \Bjora\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
-        //
+        $user = Auth::user();
+        $question->user_id = $user->id;
+        $question->question = $request->question;
+        $question->topic_id = $request->topic;
+        if($question->isDirty()){
+            $question->save();
+        }
+        $topics = Topic::all();
+        return view('question.update', ['question' => $question, 'topics' => $topics]);
+    }
+
+    public function updateForm($id)
+    {
+        $question = Question::with(['user', 'topic'])->where('id', '=', $id)->first();
+//        dd($question);
+        $topics = Topic::all();
+        return view('question.update', ['question' => $question, 'topics' => $topics]);
     }
 
     /**

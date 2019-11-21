@@ -18,7 +18,8 @@
                                 <div class="col-md-6">
                                     <input id="username" type="text"
                                            class="form-control @error('username') is-invalid @enderror" name="username"
-                                           value="{{ Auth::user()->username }}" required autocomplete="username" autofocus>
+                                           value="{{ Auth::user()->username }}" required autocomplete="username"
+                                           autofocus>
 
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
@@ -79,8 +80,11 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
                                     <input id="" type="radio" name="gender" value="Female" required
-                                           style="border-radius: 50%;" checked="{{(Auth::user()->gender === "Female") ? true : false }}"> Female
-                                    <input id="" type="radio" name="gender" value="Male" checked="{{(Auth::user()->gender === "Male") ? true : false }}" required> Male
+                                           style="border-radius: 50%;"
+                                           checked="{{(Auth::user()->gender === "Female") ? true : false }}"> Female
+                                    <input id="" type="radio" name="gender" value="Male"
+                                           checked="{{(Auth::user()->gender === "Male") ? true : false }}" required>
+                                    Male
                                 </div>
                                 @error('gender')
                                 <span class="invalid-feedback" role="alert">
@@ -109,7 +113,8 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="birthday" type="date" class="form-control" name="birthday" value="{{Auth::user()->birthday}}" required>
+                                    <input id="birthday" type="date" class="form-control" name="birthday"
+                                           value="{{Auth::user()->birthday}}" required>
                                     @error('birthday')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -132,7 +137,15 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

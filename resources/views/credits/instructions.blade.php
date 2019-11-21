@@ -455,7 +455,7 @@
     <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
         <li class="menu__item"><a href="https://github.com/KelwinTan" class="link link--dark"><i
-                        class="fa fa-github"></i> Github</a></li>
+                    class="fa fa-github"></i> Github</a></li>
         <li class="menu__item"><a href="/home" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
     </ul>
 </nav>
@@ -478,20 +478,27 @@
             <hr/>
         </section>
         <section class="js-section">
+            <h3 class="section__title">Issues</h3>
+            <p style="color: red;">
+                Disclaimer: username and name is the same. In the documentation, the register page uses username while
+                the update profile uses name.
+            </p>
+        </section>
+        <section class="js-section">
             <h3 class="section__title">Global</h3>
             <table id="customers">
                 <tr>
                     <td>Home</td>
                     <td><a href="/home">/home</a></td>
                 </tr>
-{{--                <tr>--}}
-{{--                    <td>Register</td>--}}
-{{--                    <td><a href="/register">/register</a></td>--}}
-{{--                </tr>--}}
-{{--                <tr>--}}
-{{--                    <td>prettyTable</td>--}}
-{{--                    <td>Render table with Scribbler’s pretty table style.</td>--}}
-{{--                </tr>--}}
+                {{--                <tr>--}}
+                {{--                    <td>Register</td>--}}
+                {{--                    <td><a href="/register">/register</a></td>--}}
+                {{--                </tr>--}}
+                {{--                <tr>--}}
+                {{--                    <td>prettyTable</td>--}}
+                {{--                    <td>Render table with Scribbler’s pretty table style.</td>--}}
+                {{--                </tr>--}}
             </table>
         </section>
 
@@ -508,8 +515,8 @@
                     <td><a href="/register">/register</a></td>
                 </tr>
                 <tr>
-                    <td>prettyTable</td>
-                    <td>Render table with Scribbler’s pretty table style.</td>
+                    <td>Home</td>
+                    <td><a href="/home">/home</a></td>
                 </tr>
             </table>
         </section>
@@ -532,17 +539,7 @@
             <hr/>
         </section>
 
-        <section class="js-section">
-            <h3 class="section__title">Issues</h3>
-            <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per.
-                At eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum
-                intellegebat, ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro
-                verear eu vix, ne usu tation vituperata.</p>
-            <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-                concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant
-                lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te,
-                ne per tacimates suavitate vituperatoribus.</p>
-        </section>
+
     </article>
 </div>
 

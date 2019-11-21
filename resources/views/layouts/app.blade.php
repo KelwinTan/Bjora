@@ -28,7 +28,7 @@
                 {{ config('app.name', 'Laravel') }}
             </a>
 
-            <a class="navbar-brand text-white" href="{{ url('/home') }}">
+            <a class="navbar-brand text-white" href="{{ url('/question/my') }}">
                 My Question
             </a>
 
