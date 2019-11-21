@@ -70,12 +70,20 @@
                                         onclick="window.location='{{Route('update-question-form', $question->id )}}'">
                                         Edit
                                     </button>
-                                    <button>Delete</button>
                                     @if($question->status === "open")
-                                        <button style="background-color: red;">closed</button>
-{{--                                    @elseif($question->status === "closed")--}}
-{{--                                        <button style="background-color: green;">open</button>--}}
+                                        <form action="/question/closed/{{$question->id}}" method="POST">
+                                            @method('PUT')
+                                            <button style="background-color: red;" type="submit">closed</button>
+                                        </form>
+                                        {{--                                    @elseif($question->status === "closed")--}}
+                                        {{--                                        <button style="background-color: green;">open</button>--}}
                                     @endif
+                                    <form action="{{$question->id}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit">Delete</button>
+                                    </form>
+
                                 </div>
                                 <div style="margin-left: 20px;">
                                     @if($question->status === "open")

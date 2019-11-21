@@ -7,6 +7,7 @@ use Bjora\Question;
 use Bjora\Topic;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
@@ -99,7 +100,7 @@ class QuestionController extends Controller
             $question->save();
         }
         $topics = Topic::all();
-        return view('question.update', ['question' => $question, 'topics' => $topics]);
+        return redirect(Route('user-question'));
     }
 
     public function updateForm($id)
@@ -110,14 +111,22 @@ class QuestionController extends Controller
         return view('question.update', ['question' => $question, 'topics' => $topics]);
     }
 
+    public function close(Question $question){
+        $question->status = 'closed';
+        $question->save();
+        return redirect(Route('user-question'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \Bjora\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy($id)
     {
-        //
+        $question = Question::find($id);
+        $question->delete();
+        return redirect(Route('user-question'));
     }
 }
