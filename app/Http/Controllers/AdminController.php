@@ -4,6 +4,8 @@ namespace Bjora\Http\Controllers;
 
 use Bjora\Admin;
 use Bjora\Http\Requests\UserRequest;
+use Bjora\Question;
+use Bjora\Topic;
 use Bjora\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -47,7 +49,7 @@ class AdminController extends Controller
     {
         // Store image to public profile directory, then store the path to profile_picture column in the users table
         $profile_picture = "";
-        if(isset($data['profile_picture'])){
+        if (isset($data['profile_picture'])) {
             $img = $data['profile_picture'];
             $profile_picture = Storage::disk('public')->put('profile_picture', $img);
         }
@@ -123,13 +125,31 @@ class AdminController extends Controller
 
     public function manageUser()
     {
-
         $users = User::paginate(10);
         return view('admin.manage-user', ['users' => $users]);
     }
 
-    public function addUserForm(){
+    public function manageQuestion()
+    {
+        $questions = Question::paginate(10);
+        return view('admin.manage-question', ['questions' => $questions]);
+    }
+
+    public function manageTopic()
+    {
+        $topics = Topic::paginate(10);
+        return view('admin.manage-topic', ['topics' => $topics]);
+    }
+
+//    function for showing add user form
+    public function addUserForm()
+    {
         return view('admin.create-user');
+    }
+
+    public function addQuestionForm(){
+        $topics = Topic::all();
+        return view('question.user-add',  ['topics' => $topics]);
     }
 
 }

@@ -30,6 +30,15 @@
     cursor: pointer;
 }
 
+.button-gray {
+    width: 100%;
+    background-color: lightgray;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .button-yellow{
     width: 100%;
     background-color: #FADA5E;

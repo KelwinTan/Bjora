@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7b9466-1ead-488c-9b60-cb515409b755" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/manage-question.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/manage-topic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/topic/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/topic/update.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TopicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TopicController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/manage-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/manage-user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,7 +199,7 @@
       <workItem from="1574227232167" duration="143000" />
       <workItem from="1574227387763" duration="237000" />
       <workItem from="1574227636056" duration="17000" />
-      <workItem from="1574227668197" duration="33192000" />
+      <workItem from="1574227668197" duration="46138000" />
     </task>
     <servers />
   </component>
@@ -224,5 +232,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/routes/web.php</url>
+          <line>79</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

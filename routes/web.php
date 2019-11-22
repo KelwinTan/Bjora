@@ -46,17 +46,36 @@ Route::group(['prefix' => 'profile'], function () {
     Route::post('/update', 'UserController@updateProfile')->name('Update Profile');
 });
 
-
+//Routing for Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function () {
 
     Route::get('/home', function () {
-        return view('admin');
-    });
+        return view('admin.admin');
+    })->name('admin-dashboard');
 
-    Route::get('/manage-user', 'AdminController@manageUser');
+//    Routes for managing users, questions and topics
+    Route::get('/manage-user', 'AdminController@manageUser')->name('admin-manage-user');
+    Route::get('/manage-question', 'AdminController@manageQuestion')->name('admin-manage-question');
+    Route::get('/manage-topic', 'AdminController@manageTopic')->name('admin-manage-topic');
+
+//  Admin Route for adding user
     Route::get('/add-user', 'AdminController@addUserForm')->name('admin-add-user');
     Route::post('/add-user', 'AdminController@createUser');
 
+//   Admin Route for adding question
+    Route::get('/add-question', 'AdminController@addQuestionForm')->name('admin-add-question-form');
+
+//    Admin Route for deleting question
+    Route::delete('/question/{id}');
+
+    Route::get('/add-topic', 'TopicController@createForm')->name('admin-add-topic-form');
+    Route::post('/add-topic', 'TopicController@create')->name('admin-add-topic');
+
+    Route::get('/update-topic/{id}', 'TopicController@updateForm')->name('admin-update-topic-form');
+    Route::post('/update-topic/{topic}', 'TopicController@update')->name('admin-update-topic');
+
+
+    Route::delete('/topic/{topic}', 'TopicController@destroy')->name('admin-delete-topic');
 
     Route::group(['prefix' => 'topic'], function () {
         Route::get('/', 'TopicController@index');

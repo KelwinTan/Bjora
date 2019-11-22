@@ -61,7 +61,8 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" style="color: white;"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               style="color: white;"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Menu <span class="caret"></span>
                             </a>
@@ -72,6 +73,11 @@
                                     Question</a>
                                 <a class="dropdown-item" aria-labelledby="navbarDropdown"
                                    href="{{route('show-profile')}}">Profile</a>
+
+                                @if(Auth::user()->role === "Admin")
+                                    <a href="{{Route('admin-dashboard')}}" class="dropdown-item" aria-labelledby="navbarDropdown">Show Admin
+                                        dashboard</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
