@@ -15,7 +15,7 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('owner_id');
+            $table->bigInteger('user_id');
             $table->bigInteger('question_id');
             $table->longText('answer');
             $table->softDeletes();
