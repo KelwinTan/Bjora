@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create User') }}</div>
+                    <div class="card-header">{{ __('Update Profile') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin-add-user') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin-update-user', $user->id) }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -18,7 +18,8 @@
                                 <div class="col-md-6">
                                     <input id="username" type="text"
                                            class="form-control @error('username') is-invalid @enderror" name="username"
-                                           value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                           value="{{ $user->username }}" required autocomplete="username"
+                                           autofocus>
 
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
@@ -35,7 +36,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
+                                           value="{{ $user->email}}" required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -79,8 +80,11 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
                                     <input id="" type="radio" name="gender" value="Female" required
-                                           style="border-radius: 50%;"> Female
-                                    <input id="" type="radio" name="gender" value="Male" required> Male
+                                           style="border-radius: 50%;"
+                                           checked="{{($user->gender === "Female") ? true : false }}"> Female
+                                    <input id="" type="radio" name="gender" value="Male"
+                                           checked="{{($user->gender === "Male") ? true : false }}" required>
+                                    Male
                                 </div>
                                 @error('gender')
                                 <span class="invalid-feedback" role="alert">
@@ -95,7 +99,7 @@
 
                                 <div class="col-md-6">
                                     <textarea style="width: 100%; height: 200px;" name="address"
-                                              placeholder="Insert Your Address..."></textarea>
+                                              placeholder="Insert Your Address...">{{$user->address}}</textarea>
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -109,7 +113,8 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="birthday" type="date" class="form-control" name="birthday" required>
+                                    <input id="birthday" type="date" class="form-control" name="birthday"
+                                           value="{{$user->birthday}}" required>
                                     @error('birthday')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -132,12 +137,20 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Create User') }}
+                                        {{ __('Update Profile') }}
                                     </button>
                                 </div>
                             </div>

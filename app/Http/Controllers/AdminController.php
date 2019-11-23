@@ -3,6 +3,7 @@
 namespace Bjora\Http\Controllers;
 
 use Bjora\Admin;
+use Bjora\Http\Requests\QuestionRequest;
 use Bjora\Http\Requests\UserRequest;
 use Bjora\Question;
 use Bjora\Topic;
@@ -25,46 +26,30 @@ class AdminController extends Controller
     }
 
 
-    protected function validator(array $data)
-    {
-//        Username and Name and Full Name are the same
-        return Validator::make($data, [
-            'username' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'alpha_num', 'min:6', 'confirmed'],
-            'gender' => ['required', 'in:Male,Female'],
-            'address' => ['required'],
-            'birthday' => ['required', 'date'],
-            'profile_picture' => ['required', 'image', 'mimes:jpeg,png,jpg'],
-        ]);
-    }
-
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function createUser(array $data)
+    public function createUser(UserRequest $request)
     {
         // Store image to public profile directory, then store the path to profile_picture column in the users table
         $profile_picture = "";
-        if (isset($data['profile_picture'])) {
-            $img = $data['profile_picture'];
+        if (isset($request->profile_picture)) {
+            $img = $request->profile_picture;
             $profile_picture = Storage::disk('public')->put('profile_picture', $img);
         }
-        $newUser = User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'address' => $data['address'],
-            'profile_picture' => $profile_picture,
-            'birthday' => $data['birthday'],
-            'role' => User::MEMBER_TYPE,
-        ]);
-
-        return view('admin.manage-user');
+        $newUser = new User();
+        $newUser->username = $request->username;
+        $newUser->email = $request->email;
+        $newUser->password = Hash::make($request->password);
+        $newUser->gender = $request->gender;
+        $newUser->address = $request->address;
+        $newUser->profile_picture = $profile_picture;
+        $newUser->birthday = $request->birthday;
+        $newUser->role = User::MEMBER_TYPE;
+        $newUser->save();
+        return redirect(route('admin-manage-user'));
     }
 
     /**
@@ -150,6 +135,65 @@ class AdminController extends Controller
     public function addQuestionForm(){
         $topics = Topic::all();
         return view('question.user-add',  ['topics' => $topics]);
+    }
+
+    public function deleteQuestion(Question $question){
+        $question->delete();
+        return redirect(route('admin-manage-question'));
+    }
+
+    public function deleteUser(User $user){
+        $user->delete();
+        return redirect(Route('admin-manage-user'));
+    }
+
+    public function updateQuestionForm(Question $question){
+        $topics = Topic::all();
+        return view('admin.updateQuestion', ['question' => $question, 'topics' => $topics]);
+    }
+
+    public function updateQuestion(Question $question, QuestionRequest $request){
+        $question->topic_id = $request->topic;
+        $question->question = $request->question;
+
+        if($question->isDirty()){
+            $question->save();
+        }
+
+        return redirect(route('admin-manage-question'));
+    }
+
+//    Update User Form
+    public function updateUserForm(User $user){
+
+        return view('admin.updateUser', ['user' => $user]);
+    }
+
+    public function updateUser(User $user, UserRequest $userRequest){
+        $profile_picture = "";
+        if(isset($userRequest['profile_picture'])){
+            $img = $userRequest['profile_picture'];
+            $profile_picture = Storage::disk('public')->put('profile_picture', $img);
+        }
+
+        $user->username = $userRequest->username;
+        $user->email = $userRequest->email;
+        $user->password = Hash::make($userRequest->password);
+        $user->gender = $userRequest->gender;
+        $user->address = $userRequest->address;
+        $user->profile_picture = $profile_picture;
+        $user->birthday = $userRequest->birthday;
+
+        if($user->isDirty()){
+            $user->save();
+        }
+        return redirect()->route('admin-manage-user');
+    }
+
+    public function closeQuestion(Question $question){
+        $question->status = 'closed';
+        $question->save();
+        return redirect(Route('admin-manage-question'));
     }
 
 }

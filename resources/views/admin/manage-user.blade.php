@@ -41,13 +41,16 @@
             font-family: 'Nunito Sans', sans-serif;
             background-color: white;
         }
+
         .wrapper {
             margin: 0 auto;
             width: 90%;
         }
+
         * {
             box-sizing: border-box;
         }
+
         /*.wrapper {*/
         /*    display: flex;*/
         /*    flex-grow: 1;*/
@@ -98,7 +101,7 @@
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}" >
+                    aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -152,45 +155,58 @@
     <div class="wrapper">
         <section class="js-section">
             <div>
-                <button style="width: 150px;" class="button-blue" onclick="location.href='{{route('admin-add-user')}}'">Add User</button>
+                <button style="width: 150px;" class="button-blue"
+                        onclick="location.href='{{route('admin-add-user-form')}}'">Add User
+                </button>
             </div>
             <hr>
             <h3 class="section__title">Manage User: Master User Page</h3>
             @foreach($users as $user)
-            <table id="user">
-                <tr>
-                    <td style="width: 10px;">#</td>
-                    <td style="width: 80px;">Role</td>
-                    <td style="width: 200px;">Email</td>
-                    <td style="width: 120px;">FullName</td>
-                    <td style="width: 60px;">Gender</td>
-                    <td style="width: 300px;">Address</td>
-                    <td style="width: 150px;">Profile Picture</td>
-                    <td style="width: 150px;">DOB</td>
-                    <td style="width: 150px;">Action</td>
-                </tr>
-                <tr>
-                    <td style="width: 10px;">{{$user->id}}</td>
-                    <td style="width: 80px;">{{$user->role}}</td>
-                    <td style="width: 200px; word-break: break-word;">{{$user->email}}</td>
-                    <td style="width: 120px; word-break: break-word;">{{$user->username}}</td>
-                    <td style="width: 60px;">{{$user->gender}}</td>
-                    <td style="width: 300px; word-break: break-word;">{{$user->address}}</td>
-                    <td style="width: 150px;">
-                        <img src="{{url('storage', $user->profile_picture)}}" alt="Profile Picture"
-                             style="width: 70px; height: 100px;">
-                    </td>
-                    <td style="width: 150px;">{{$user->birthday}}</td>
-                    <td style="align-items: center; width: 150px;" >
-                        <button class="button-yellow">Edit</button>
-                        <hr>
-                        <button class="button-red">Delete</button>
-                    </td>
-                </tr>
-            </table>
+                <table id="user">
+                    <tr>
+                        <td style="width: 10px;">#</td>
+                        <td style="width: 80px;">Role</td>
+                        <td style="width: 200px;">Email</td>
+                        <td style="width: 120px;">FullName</td>
+                        <td style="width: 60px;">Gender</td>
+                        <td style="width: 300px;">Address</td>
+                        <td style="width: 150px;">Profile Picture</td>
+                        <td style="width: 150px;">DOB</td>
+                        <td style="width: 150px;">Action</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10px;">{{$user->id}}</td>
+                        <td style="width: 80px;">{{$user->role}}</td>
+                        <td style="width: 200px; word-break: break-word;">{{$user->email}}</td>
+                        <td style="width: 120px; word-break: break-word;">{{$user->username}}</td>
+                        <td style="width: 60px;">{{$user->gender}}</td>
+                        <td style="width: 300px; word-break: break-word;">{{$user->address}}</td>
+                        <td style="width: 150px;">
+                            <img src="{{url('storage', $user->profile_picture)}}" alt="Profile Picture"
+                                 style="width: 70px; height: 100px;">
+                        </td>
+                        <td style="width: 150px;">{{$user->birthday}}</td>
+                        <td style="align-items: center; width: 150px;">
+                            <button class="button-yellow"
+                                    onclick="location.href='{{route('admin-update-user-form', $user->id)}}'">Edit
+                            </button>
+                            <hr>
+                            <form action="user/{{$user->id}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="button-red">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
             @endforeach
             <hr/>
         </section>
+    </div>
+</div>
+<div style="display: flex; margin-bottom: 40px;">
+    <div style="margin: 0 auto;">
+        {{$users->appends(request()->input())->links()}}
     </div>
 </div>
 </body>

@@ -44,6 +44,9 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('/user', 'UserController@showProfile')->name('show-profile');
     Route::get('/update', 'UserController@showUpdateProfile')->name('show-update-profile');
     Route::post('/update', 'UserController@updateProfile')->name('Update Profile');
+
+    Route::get('/send-message', 'UserController@sendMsgForm')->name('user-send-msg-form');
+
 });
 
 //Routing for Admin
@@ -59,23 +62,34 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function () {
     Route::get('/manage-topic', 'AdminController@manageTopic')->name('admin-manage-topic');
 
 //  Admin Route for adding user
-    Route::get('/add-user', 'AdminController@addUserForm')->name('admin-add-user');
-    Route::post('/add-user', 'AdminController@createUser');
+    Route::get('/add-user', 'AdminController@addUserForm')->name('admin-add-user-form');
+    Route::post('/add-user', 'AdminController@createUser')->name('admin-add-user');
 
 //   Admin Route for adding question
     Route::get('/add-question', 'AdminController@addQuestionForm')->name('admin-add-question-form');
 
 //    Admin Route for deleting question
-    Route::delete('/question/{id}');
+    Route::delete('/question/{question}', 'AdminController@deleteQuestion')->name('admin-delete-question');
 
     Route::get('/add-topic', 'TopicController@createForm')->name('admin-add-topic-form');
     Route::post('/add-topic', 'TopicController@create')->name('admin-add-topic');
 
     Route::get('/update-topic/{id}', 'TopicController@updateForm')->name('admin-update-topic-form');
     Route::post('/update-topic/{topic}', 'TopicController@update')->name('admin-update-topic');
-
-
     Route::delete('/topic/{topic}', 'TopicController@destroy')->name('admin-delete-topic');
+
+//    Admin Route for deleting user
+    Route::delete('/user/{user}', 'AdminController@deleteUser')->name('admin-delete-user');
+
+//    Admin Update User
+    Route::get('/update-user/{user}', 'AdminController@updateUserForm')->name('admin-update-user-form');
+    Route::post('/update-user/{user}', 'AdminController@updateUser')->name('admin-update-user');
+
+//    Admin Update Question
+    Route::get('/update-question/{question}', 'AdminController@updateQuestionForm')->name('admin-update-question-form');
+    Route::put('/update-question/{question}', 'AdminController@updateQuestion')->name('admin-update-question');
+
+    Route::put('/closed/{question}', 'AdminController@closeQuestion')->name('admin-close-question');
 
     Route::group(['prefix' => 'topic'], function () {
         Route::get('/', 'TopicController@index');

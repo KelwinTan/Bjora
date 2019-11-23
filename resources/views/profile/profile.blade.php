@@ -59,5 +59,11 @@
         </div>
     </div>
     @endforeach()
+    <div style="display: flex; margin: 10px;">
+        <div style="margin: 0 auto;">
+            {{$users->appends(request()->input())->links()}}
+        </div>
+    </div>
+
 @endsection
 

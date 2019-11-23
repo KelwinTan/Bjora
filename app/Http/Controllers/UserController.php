@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function showProfile()
     {
-        $others = User::where('id', '!=', \auth()->id())->get();
+        $others = User::where('id', '!=', \auth()->id())->paginate(10);
         return view('profile.profile', ['users' => $others]);
     }
 
@@ -55,6 +55,5 @@ class UserController extends Controller
 
         return redirect()->route('show-profile');
     }
-
 
 }
