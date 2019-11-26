@@ -48,7 +48,7 @@
                                 <p style="margin: 0px; padding: 0px;">{{$user->birthday}}</p>
                             </div>
                             <div style="width: 150px;">
-                                <button class="button-blue" onclick="location.href='{{route('show-update-profile')}}'">
+                                <button class="button-blue" onclick="location.href='{{route('user-send-msg-form', $user->id)}}'">
                                     Send Message
                                 </button>
                             </div>

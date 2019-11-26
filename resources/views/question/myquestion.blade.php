@@ -61,13 +61,17 @@
                                          src="{{url('storage', $question->user->profile_picture)}}"
                                          alt="profile picture">
                                 </div>
-                                <div>
+                                <div style="width: 80%;">
                                     <p>{{$question->question}}</p>
-                                    <p style="color: rgba(52, 144, 220, 0.9) !important;">{{$question->user->username}}</p>
+                                    <a style="color: rgba(52, 144, 220, 0.9) !important;"
+                                       href="{{route('show-other-profile', $question->user->id)}}">{{$question->user->username}}</a>
                                     <p style="color: darkgrey;">Created At: {{$question->created_at}}</p>
-                                    <button>See Answer</button>
-                                    <button
-                                        onclick="window.location='{{Route('update-question-form', $question->id )}}'">
+                                    <button class="button-blue"
+                                            onclick="window.location='{{Route('show-answer', $question->id )}}'">See
+                                        Answer
+                                    </button>
+                                    <button class="button-yellow"
+                                            onclick="window.location='{{Route('update-question-form', $question->id )}}'">
                                         Edit
                                     </button>
                                     @if($question->status === "open")
@@ -81,7 +85,7 @@
                                     <form action="{{$question->id}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit">Delete</button>
+                                        <button type="submit" class="button-red">Delete</button>
                                     </form>
 
                                 </div>

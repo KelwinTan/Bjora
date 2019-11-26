@@ -2,7 +2,9 @@
 
 namespace Bjora\Http\Controllers;
 
+use Bjora\Http\Requests\MessageRequest;
 use Bjora\Http\Requests\UserRequest;
+use Bjora\Message;
 use Bjora\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +24,12 @@ class UserController extends Controller
         return view('profile.update');
     }
 
-    public function updateProfile(UserRequest $userRequest){
+    public function updateProfile(UserRequest $userRequest)
+    {
 
 
         $profile_picture = "";
-        if(isset($userRequest['profile_picture'])){
+        if (isset($userRequest['profile_picture'])) {
             $img = $userRequest['profile_picture'];
             $profile_picture = Storage::disk('public')->put('profile_picture', $img);
         }
@@ -54,6 +57,26 @@ class UserController extends Controller
         $currUser->save();
 
         return redirect()->route('show-profile');
+    }
+
+    public function otherProfile($id)
+    {
+        $user = User::find($id);
+        return view('profile.other', ['user' => $user]);
+    }
+
+    public function sendMsgForm($id){
+        $recipient = User::find($id);
+        return view('profile.message', ['recipient' => $recipient]);
+    }
+
+    public function sendMsg($id, MessageRequest $request){
+        $newMessage = new Message();
+        $newMessage->recipient_id = $id;
+        $newMessage->user_id = Auth::user()->id;
+        $newMessage->message = $request->message;
+        $newMessage->save();
+        return back()->with('success', 'Message Sent');
     }
 
 }

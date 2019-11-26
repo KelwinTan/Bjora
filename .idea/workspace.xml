@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7b9466-1ead-488c-9b60-cb515409b755" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/answer/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/profile/message.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_23_172422_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_23_172422_create_answers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/question/boilerplate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/question/boilerplate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,16 +143,16 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\resources\views\credits" />
-      <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\public\assets\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\bjora\storage\app\public\profile_picture" />
       <recent name="D:\dev\bjora\public\assets\images" />
       <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\storage\app\public\profile_picture" />
       <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\resources\views\admin" />
       <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\resources\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\resources\views\credits" />
+      <recent name="F:\Kuliah\Semester 5\Web Programming\dev-lab-project\public\assets\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -189,7 +200,8 @@
       <workItem from="1574227232167" duration="143000" />
       <workItem from="1574227387763" duration="237000" />
       <workItem from="1574227636056" duration="17000" />
-      <workItem from="1574227668197" duration="57928000" />
+      <workItem from="1574227668197" duration="59232000" />
+      <workItem from="1574742314680" duration="18125000" />
     </task>
     <servers />
   </component>

@@ -32,7 +32,7 @@
                 My Question
             </a>
 
-            <a class="navbar-brand text-white" href="{{ url('/home') }}">
+            <a class="navbar-brand text-white" href="{{ route('user-inbox') }}">
                 Inbox
             </a>
 

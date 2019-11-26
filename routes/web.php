@@ -45,8 +45,21 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('/update', 'UserController@showUpdateProfile')->name('show-update-profile');
     Route::post('/update', 'UserController@updateProfile')->name('Update Profile');
 
-    Route::get('/send-message', 'UserController@sendMsgForm')->name('user-send-msg-form');
+    Route::get('/send-message/{id}', 'UserController@sendMsgForm')->name('user-send-msg-form');
+    Route::post('/send-message/{id}', 'UserController@sendMsg')->name('user-send-msg');
+    Route::get('/inbox', 'MessageController@index')->name('user-inbox');
+    Route::delete('/msg/{message}', 'MessageController@destroy')->name('user-delete-inbox');
 
+    Route::get('/user/{id}', 'UserController@otherProfile')->name('show-other-profile');
+});
+
+//Routing for Answers
+Route::group(['prefix' => 'answer'], function (){
+    Route::get('/{id}', 'AnswerController@index')->name('show-answer');
+    Route::post('/{id}', 'AnswerController@create')->name('answer-question');
+    Route::delete('/{answer}', 'AnswerController@destroy');
+    Route::get('/update/{answer}', 'AnswerController@updateForm')->name('answer-update-form');
+    Route::put('/update/{answer}', 'AnswerController@update')->name('answer-update');
 });
 
 //Routing for Admin

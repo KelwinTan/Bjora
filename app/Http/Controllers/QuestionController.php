@@ -68,6 +68,7 @@ class QuestionController extends Controller
     public function show(Question $question)
     {
         $user = Auth::user();
+        if($user === null) return redirect()->route('home');
         $questions = Question::with(['user', 'topic'])->where('user_id', '=', $user->id)->paginate(10);
         return view('question.myquestion', ['questions' => $questions]);
     }
