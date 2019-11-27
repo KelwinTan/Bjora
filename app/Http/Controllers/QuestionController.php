@@ -17,9 +17,16 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $questions = Question::with(['user', 'topic'])->paginate(10);
+        if ($request === null){
+            $questions = Question::with(['user', 'topic'])->paginate(10);
+        }
+        else{
+            $questions = Question::with(['user'])->where('question', 'like', '%'.$request->search.'%')->orWhereHas('user', function($query) use ($request){
+                $query->where('username', 'like', "%{$request->search}%");
+            })->paginate(10);
+        }
         return view('home', ['questions' => $questions]);
     }
 

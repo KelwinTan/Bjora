@@ -531,11 +531,12 @@
                     <td>Profile</td>
                     <td><a href="/profile/user">/profile/user</a> *Only if User has logged in* </td>
                 </tr>
+                <tr>
+                    <td>Inbox</td>
+                    <td><a href="/profile/user">/profile/user</a> *Only if User has logged in* </td>
+                </tr>
             </table>
-            <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-                concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant
-                lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te,
-                ne per tacimates suavitate vituperatoribus.</p>
+
             <hr/>
         </section>
 

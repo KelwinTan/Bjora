@@ -22,6 +22,7 @@ Route::get('/credits', function () {
 Auth::routes();
 
 Route::get('/home', 'QuestionController@index')->name('home');
+Route::get('/home/search', 'QuestionController@index')->name('home-search');
 
 Route::group(['prefix' => 'question'], function () {
 
