@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7b9466-1ead-488c-9b60-cb515409b755" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/answer/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profile/message.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/credits/instructions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/credits/instructions.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/question/boilerplate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/question/boilerplate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/question/myquestion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +129,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Database" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" />
   </component>
   <component name="RecentsManager">
@@ -201,7 +191,7 @@
       <workItem from="1574227387763" duration="237000" />
       <workItem from="1574227636056" duration="17000" />
       <workItem from="1574227668197" duration="59232000" />
-      <workItem from="1574742314680" duration="18125000" />
+      <workItem from="1574742314680" duration="21314000" />
     </task>
     <servers />
   </component>

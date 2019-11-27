@@ -524,12 +524,12 @@
             <h3 class="section__title">Admin</h3>
             <table id="customers">
                 <tr>
-                    <td>highlighting</td>
-                    <td>Show syntax highlight on markdown text.</td>
+                    <td>Answer</td>
+                    <td><a href="/answer/1">/answer/1</a></td>
                 </tr>
                 <tr>
-                    <td>prettyTable</td>
-                    <td>Render table with Scribbler’s pretty table style.</td>
+                    <td>Profile</td>
+                    <td><a href="/profile/user">/profile/user</a> *Only if User has logged in* </td>
                 </tr>
             </table>
             <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
