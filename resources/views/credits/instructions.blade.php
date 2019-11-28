@@ -533,14 +533,48 @@
                 </tr>
                 <tr>
                     <td>Inbox</td>
-                    <td><a href="/profile/user">/profile/user</a> *Only if User has logged in* </td>
+                    <td><a href="/profile/inbox">/profile/inbox</a> *Only if User has logged in* </td>
+                </tr>
+                <tr>
+                    <td>Master User</td>
+                    <td><a href="/admin/manage-user">/admin/manage-user</a> *Only if Admin has logged in* </td>
+                </tr>
+                <tr>
+                    <td>Master Question</td>
+                    <td><a href="/admin/manage-question">/admin/manage-question</a> *Only if Admin has logged in* </td>
+                </tr>
+                <tr>
+                    <td>Master Topic</td>
+                    <td><a href="/admin/manage-topic">/admin/manage-topic</a> *Only if Admin has logged in* </td>
                 </tr>
             </table>
 
             <hr/>
         </section>
 
+        <section class="js-section">
+            <h3 class="section__title">Member</h3>
+            <table id="customers">
+                <tr>
+                    <td>Answer</td>
+                    <td><a href="/answer/1">/answer/1</a></td>
+                </tr>
+                <tr>
+                    <td>Profile</td>
+                    <td><a href="/profile/user">/profile/user</a> *Only if User has logged in* </td>
+                </tr>
+                <tr>
+                    <td>Inbox</td>
+                    <td><a href="/profile/inbox">/profile/inbox</a> *Only if User has logged in* </td>
+                </tr>
+                <tr>
+                    <td>My Question</td>
+                    <td><a href="/question/my">/question/my</a> *Only if User has questions* </td>
+                </tr>
+            </table>
 
+            <hr/>
+        </section>
     </article>
 </div>
 

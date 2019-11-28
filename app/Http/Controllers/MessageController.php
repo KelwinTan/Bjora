@@ -15,6 +15,7 @@ class MessageController extends Controller
      */
     public function index()
     {
+        if (Auth::user() === null) return back();
         $id = Auth::user()->id;
         $messages = Message::with(['user', 'recipient'])->where('recipient_id', '=', $id)->paginate(10);
 //        dd($messages);
