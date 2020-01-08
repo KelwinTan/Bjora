@@ -71,6 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        Function for registering new users
         // Store image to public profile directory, then store the path to profile_picture column in the users table
         $profile_picture = "";
         if (isset($data['profile_picture'])) {

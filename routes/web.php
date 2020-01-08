@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('credits.instructions');
 });
 
+//Route for credits
 Route::get('/credits', function () {
     return view('credits.welcome');
 });
@@ -26,17 +27,18 @@ Route::get('/home/search', 'QuestionController@index')->name('home-search');
 
 Route::group(['prefix' => 'question'], function () {
 
-
+//Route for QuestionController
     Route::get('/add', 'QuestionController@createForm')->name('member-add-question-form');
     Route::post('/add', 'QuestionController@create')->name('member-add-question');
 
+//    Routing for updating user's own question
     Route::get('/update/{id}', 'QuestionController@updateForm')->name('update-question-form');
     Route::post('/update/{question}', 'QuestionController@update')->name('update-question');
 
     Route::get('/my', 'QuestionController@show')->name('user-question');
 
     Route::put('/closed/{question}', 'QuestionController@close')->name('close-question');
-
+//Routing for deleting user's own question
     Route::delete('/{id}', 'QuestionController@destroy')->name('delete-question');
 });
 
@@ -45,20 +47,23 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('/user', 'UserController@showProfile')->name('show-profile');
     Route::get('/update', 'UserController@showUpdateProfile')->name('show-update-profile');
     Route::post('/update', 'UserController@updateProfile')->name('Update Profile');
-
+//Routing for sending message to other users form
     Route::get('/send-message/{id}', 'UserController@sendMsgForm')->name('user-send-msg-form');
     Route::post('/send-message/{id}', 'UserController@sendMsg')->name('user-send-msg');
     Route::get('/inbox', 'MessageController@index')->name('user-inbox');
     Route::delete('/msg/{message}', 'MessageController@destroy')->name('user-delete-inbox');
-
+//Routing for showing other user's profile
     Route::get('/user/{id}', 'UserController@otherProfile')->name('show-other-profile');
 });
 
 //Routing for Answers
 Route::group(['prefix' => 'answer'], function (){
+//    Routing for showing answers
     Route::get('/{id}', 'AnswerController@index')->name('show-answer');
     Route::post('/{id}', 'AnswerController@create')->name('answer-question');
+//    Routing for deleting answers
     Route::delete('/{answer}', 'AnswerController@destroy');
+//    Routing for updating answers
     Route::get('/update/{answer}', 'AnswerController@updateForm')->name('answer-update-form');
     Route::put('/update/{answer}', 'AnswerController@update')->name('answer-update');
 });
@@ -105,6 +110,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function () {
 
     Route::put('/closed/{question}', 'AdminController@closeQuestion')->name('admin-close-question');
 
+//    Route for topics
     Route::group(['prefix' => 'topic'], function () {
         Route::get('/', 'TopicController@index');
     });

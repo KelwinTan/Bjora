@@ -108,6 +108,7 @@ class AdminController extends Controller
         //
     }
 
+//    Function for manage user form
     public function manageUser()
     {
         $users = User::paginate(10);
@@ -132,16 +133,19 @@ class AdminController extends Controller
         return view('admin.create-user');
     }
 
+//Function for adding question form
     public function addQuestionForm(){
         $topics = Topic::all();
         return view('question.user-add',  ['topics' => $topics]);
     }
 
+//    Function for deleting question
     public function deleteQuestion(Question $question){
         $question->delete();
         return redirect(route('admin-manage-question'));
     }
 
+//    Function for deleting user
     public function deleteUser(User $user){
         $user->delete();
         return redirect(Route('admin-manage-user'));
@@ -169,6 +173,7 @@ class AdminController extends Controller
         return view('admin.updateUser', ['user' => $user]);
     }
 
+//    Function for updating user
     public function updateUser(User $user, UserRequest $userRequest){
         $profile_picture = "";
         if(isset($userRequest['profile_picture'])){
@@ -190,6 +195,7 @@ class AdminController extends Controller
         return redirect()->route('admin-manage-user');
     }
 
+//    Function for closing question status
     public function closeQuestion(Question $question){
         $question->status = 'closed';
         $question->save();

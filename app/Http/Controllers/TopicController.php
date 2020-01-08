@@ -77,6 +77,7 @@ class TopicController extends Controller
      * @param \Bjora\Topic $topic
      * @return \Illuminate\Http\Response
      */
+//    Function for updating topics
     public function update(TopicRequest $request, Topic $topic)
     {
         $topic->topic_name = $request->topic_name;

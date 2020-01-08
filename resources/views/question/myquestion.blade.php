@@ -77,7 +77,7 @@
                                     @if($question->status === "open")
                                         <form action="/question/closed/{{$question->id}}" method="POST">
                                             @method('PUT')
-                                            <button style="background-color: red;" type="submit">closed</button>
+                                            <button class="button-red" type="submit">Closed</button>
                                         </form>
                                         {{--                                    @elseif($question->status === "closed")--}}
                                         {{--                                        <button style="background-color: green;">open</button>--}}

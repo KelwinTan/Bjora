@@ -59,17 +59,20 @@ class UserController extends Controller
         return redirect()->route('show-profile');
     }
 
+//    Function for showing other users' profile
     public function otherProfile($id)
     {
         $user = User::find($id);
         return view('profile.other', ['user' => $user]);
     }
 
+//    Function for showing message form
     public function sendMsgForm($id){
         $recipient = User::find($id);
         return view('profile.message', ['recipient' => $recipient]);
     }
 
+//    Function for sending message
     public function sendMsg($id, MessageRequest $request){
         $newMessage = new Message();
         $newMessage->recipient_id = $id;
